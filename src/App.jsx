@@ -1,7 +1,4 @@
 import { useCallback, useState,useEffect, useRef } from 'react'
-
-
-
 function App() {
   const [length, setLength] = useState(8)
   const [numberAllow,setNumberAllow]=useState(false)
@@ -9,10 +6,7 @@ function App() {
   const [password,setPassword]=useState("")
 
 //useRef Use
-const passwordRef=useRef(null)
-
-
-
+  const passwordRef=useRef(null)
   const passwordGenerator=useCallback(()=>{
     let pass=""
     let str="ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz"
@@ -32,10 +26,6 @@ const passwordRef=useRef(null)
   },[password])
     
   useEffect(()=>{passwordGenerator()},[length,numberAllow,charAllow,passwordGenerator])
-
-  
-
-
   return (
     <>
     <div className="w-full max-w-md mx-auto shadow-md rounded-lg px-4 py-3 my-8 bg-gray-800 text-orange-500">
@@ -59,9 +49,8 @@ const passwordRef=useRef(null)
         <input type="checkbox" defaultChecked={charAllow} id="characterInput" onChange={()=>{setCharAllow((prev)=>!prev);}} />
         <label htmlFor="characterInput">Characters</label>
         </div>
-
-    </div>
-    </div>
+        </div>
+        </div>
     </>
   )
 }
